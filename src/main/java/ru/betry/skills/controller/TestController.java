@@ -2,32 +2,33 @@ package ru.betry.skills.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.betry.skills.entity.Question;
+import ru.betry.skills.entity.Test;
 import ru.betry.skills.service.QuestionService;
+import ru.betry.skills.service.TestService;
 
 import java.util.*;
 
 @RestController
-@RequestMapping("/questions")
-public class QuestionController {
+@RequestMapping("/tests")
+public class TestController {
 
-    private QuestionService questionService;
+    private TestService testService;
 
     @Autowired
-    public QuestionController(QuestionService questionService) {
-        this.questionService = questionService;
+    public TestController(TestService testService) {
+        this.testService = testService;
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody Question question) {
-        return ResponseEntity.ok(questionService.save(question));
+    public ResponseEntity save(@RequestBody Test test) {
+        return ResponseEntity.ok(testService.save(test));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable Long id) {
-        Optional<Question> byId = questionService.findById(id);
+        Optional<Test> byId = testService.findById(id);
         return Objects.isNull(byId)
                 ? ResponseEntity.notFound().build()
                 : ResponseEntity.ok(byId);
@@ -36,6 +37,6 @@ public class QuestionController {
 
     @GetMapping
     public ResponseEntity findAll() {
-        return ResponseEntity.ok(questionService.findAll());
+        return ResponseEntity.ok(testService.findAll());
     }
 }

@@ -2,32 +2,32 @@ package ru.betry.skills.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.betry.skills.entity.Programmer;
 import ru.betry.skills.entity.Question;
-import ru.betry.skills.service.QuestionService;
+import ru.betry.skills.service.ProgrammerService;
 
 import java.util.*;
 
 @RestController
-@RequestMapping("/questions")
-public class QuestionController {
+@RequestMapping("/programmers")
+public class ProgrammerController {
 
-    private QuestionService questionService;
+    private ProgrammerService programmerService;
 
     @Autowired
-    public QuestionController(QuestionService questionService) {
-        this.questionService = questionService;
+    public ProgrammerController(ProgrammerService programmerService) {
+        this.programmerService = programmerService;
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody Question question) {
-        return ResponseEntity.ok(questionService.save(question));
+    public ResponseEntity save(@RequestBody Programmer programmer) {
+        return ResponseEntity.ok(programmerService.save(programmer));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable Long id) {
-        Optional<Question> byId = questionService.findById(id);
+        Optional<Programmer> byId = programmerService.findById(id);
         return Objects.isNull(byId)
                 ? ResponseEntity.notFound().build()
                 : ResponseEntity.ok(byId);
@@ -36,6 +36,6 @@ public class QuestionController {
 
     @GetMapping
     public ResponseEntity findAll() {
-        return ResponseEntity.ok(questionService.findAll());
+        return ResponseEntity.ok(programmerService.findAll());
     }
 }
