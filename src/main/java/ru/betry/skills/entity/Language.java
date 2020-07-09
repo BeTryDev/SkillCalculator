@@ -27,11 +27,6 @@ public class Language {
     @Setter
     private String title;
 
-    @Column
-    @Getter
-    @Setter
-    private String language;
-
     @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "skills")
     @Getter
     @Setter
