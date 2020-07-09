@@ -9,7 +9,7 @@ import org.springframework.data.cassandra.core.mapping.*;
 
 import java.util.*;
 
-@UserDefinedType("language")
+@UserDefinedType("languages")
 @Table("languages")
 public class Language {
 
@@ -32,7 +32,7 @@ public class Language {
     @Setter
     private String language;
 
-    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "skillEntity")
+    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "skills")
     @Getter
     @Setter
     private List<Skill> skillList;

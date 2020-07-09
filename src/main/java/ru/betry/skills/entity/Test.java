@@ -23,7 +23,7 @@ public class Test {
     @Setter
     private Long id;
 
-    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "question")
+    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "questions")
     @Getter
     @Setter
     private List<Question> questions;

@@ -8,7 +8,7 @@ import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.*;
 
 @Table("skills")
-@UserDefinedType("skillEntity")
+@UserDefinedType("skills")
 public class Skill {
 
     @Id

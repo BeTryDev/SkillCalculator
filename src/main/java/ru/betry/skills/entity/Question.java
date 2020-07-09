@@ -7,7 +7,7 @@ import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.*;
 
-@UserDefinedType("question")
+@UserDefinedType("questions")
 @Table("questions")
 public class Question {
 

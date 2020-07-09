@@ -28,12 +28,12 @@ public class Programmer {
     @Setter
     private String name;
 
-    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "language")
+    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "languages")
     @Getter
     @Setter
     private List<Language> languageList;
 
-    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "skillEntity")
+    @CassandraType(type = CassandraType.Name.LIST, typeArguments = {CassandraType.Name.UDT}, userTypeName = "skills")
     @Getter
     @Setter
     private List<Skill> skillList;
