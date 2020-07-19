@@ -3,20 +3,42 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Главная страница</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Hello</h1>
 
-    <p th:text="${user.name}"></p>
-    <p th:text="${user.toString()}"></p>
-    <p th:text="${T(Math).sqrt(5.0)}"></p>
+    <div class="row">
+        <div class="col-md-4" style="border: 1px solid red;">
+            <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Создание сущностей
+                </a>
 
-    <p th:each="lang : ${user.languageList}">
-        <span th:text="${lang.title}"/>
-        <span th:text="${lang.description}"/>
-    </p>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/create_developer">Программист</a>
+                    <a class="dropdown-item" href="/create_language">Язык программирования</a>
+                </div>
+            </div>
+        </div>
+        <div class="offset-md-4 col-md-4" style="border: 1px solid green;">
+            <h1>Hello</h1>
 
-    <img src="images/springHTML.png" />
+            <p th:text="${user.name}"></p>
+            <p th:text="${user.toString()}"></p>
+            <p th:text="${T(Math).sqrt(5.0)}"></p>
+
+            <p th:each="lang : ${user.languageList}">
+                <span th:text="${lang.title}"/>
+                <span th:text="${lang.description}"/>
+            </p>
+
+            <img src="images/bootstrap.png" width="250px" />
+        </div>
+    </div>
 </body>
 </html>

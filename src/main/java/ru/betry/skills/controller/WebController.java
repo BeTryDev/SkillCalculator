@@ -20,4 +20,14 @@ public class WebController {
         return "index";
     }
 
+    @GetMapping("/create_developer")
+    public String developer() {
+        return "developer";
+    }
+
+    @GetMapping("/create_language")
+    public String language() {
+        return "language";
+    }
+
 }
