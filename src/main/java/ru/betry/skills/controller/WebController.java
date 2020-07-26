@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import ru.betry.skills.entity.Language;
 import ru.betry.skills.entity.Programmer;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class WebController {
@@ -14,7 +14,7 @@ public class WebController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("user", new Programmer(1L, "Boris",
-                List.of(new Language(1L, "Test", "Test description", null),
+                Arrays.asList(new Language(1L, "Test", "Test description", null),
                         new Language(2L, "Test1", "Test description1", null)),
                 null));
         return "index";
@@ -28,6 +28,11 @@ public class WebController {
     @GetMapping("/create_language")
     public String language() {
         return "language";
+    }
+
+    @GetMapping("/vacancies")
+    public String vacancies() {
+        return "vacancies";
     }
 
 }
