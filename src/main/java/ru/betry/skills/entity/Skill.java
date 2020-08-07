@@ -1,5 +1,6 @@
 package ru.betry.skills.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -9,6 +10,7 @@ import org.springframework.data.cassandra.core.mapping.*;
 
 @Table("skills")
 @UserDefinedType("skills")
+@AllArgsConstructor
 public class Skill {
 
     @Id
